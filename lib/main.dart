@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:plz_set_ward_app/screens/bottombar/champion.dart';
+import 'package:plz_set_ward_app/screens/bottombar/combination.dart';
+import 'package:plz_set_ward_app/screens/bottombar/community.dart';
+import 'package:plz_set_ward_app/screens/bottombar/profile.dart';
+import 'package:plz_set_ward_app/screens/bottombar/search.dart';
+import 'package:stylish_bottom_bar/model/bar_items.dart';
+
+import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,109 +16,174 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return ScreenUtilInit(
+      designSize: const Size(378, 844),
+      builder: (BuildContext context, Widget? child) => const MaterialApp(
+          title: '와드좀 박아라', debugShowCheckedModeBanner: false, home: MyPage()),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class MyPage extends StatefulWidget {
+  const MyPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyPage> createState() => _MyPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MyPageState extends State<MyPage> {
+  dynamic selected;
+  var heart = false;
+  PageController controller = PageController();
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return DefaultTabController(
+        //바텀바 코드
+        length: 5,
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          extendBody: true,
+          bottomNavigationBar: StylishBottomBar(
+            option: AnimatedBarOptions(
+              iconSize: 23.w,
+              barAnimation: BarAnimation.fade,
+              iconStyle: IconStyle.Default,
+              opacity: 0.3,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            items: [
+              BottomBarItem(
+                  icon: Icon(
+                    Icons.search,
+                    size: 23.w,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.search,
+                    size: 23.w,
+                  ),
+                  selectedColor: const Color(0xffFFA030),
+                  backgroundColor: const Color(0xffB7B7B7),
+                  title: Text(
+                    '검색',
+                    style:
+                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                  )),
+              BottomBarItem(
+                  icon: Icon(
+                    Icons.emoji_events,
+                    size: 23.w,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.emoji_events,
+                    size: 23.w,
+                  ),
+                  selectedColor: const Color(0xffFFA030),
+                  backgroundColor: const Color(0xffB7B7B7),
+                  title: Text(
+                    '챔피언',
+                    style:
+                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                  )),
+              BottomBarItem(
+                  icon: Icon(
+                    Icons.supervised_user_circle,
+                    size: 23.w,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.supervised_user_circle,
+                    size: 23.w,
+                  ),
+                  selectedColor: const Color(0xffFFA030),
+                  backgroundColor: const Color(0xffB7B7B7),
+                  title: Text(
+                    '조힙',
+                    style:
+                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                  )),
+              BottomBarItem(
+                  icon: Icon(
+                    Icons.people,
+                    size: 23.w,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.people,
+                    size: 23.w,
+                  ),
+                  selectedColor: const Color(0xffFFA030),
+                  backgroundColor: const Color(0xffB7B7B7),
+                  title: Text(
+                    '커뮤니티',
+                    style:
+                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                  )),
+              BottomBarItem(
+                  icon: Icon(
+                    Icons.account_circle,
+                    size: 23.w,
+                  ),
+                  selectedIcon: Icon(
+                    Icons.account_circle,
+                    size: 23.w,
+                  ),
+                  selectedColor: const Color(0xffFFA030),
+                  backgroundColor: const Color(0xffB7B7B7),
+                  title: Text(
+                    '프로필',
+                    style:
+                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                  )),
+            ],
+            hasNotch: true,
+            currentIndex: selected ?? 0,
+            onTap: (index) {
+              controller.jumpToPage(index);
+              setState(() {
+                selected = index;
+              });
+            },
+          ),
+          body: SafeArea(
+            child: PageView(
+              controller: controller,
+              physics: const NeverScrollableScrollPhysics(),
+              onPageChanged: ((value) {
+                if (value == 0) {
+                  setState(() {
+                    selected = 0;
+                  });
+                } else if (value == 1) {
+                  setState(() {
+                    selected = 1;
+                  });
+                } else if (value == 2) {
+                  setState(() {
+                    selected = 2;
+                  });
+                }
+              }),
+              children: const [
+                Search(),
+                Champion(),
+                Combination(),
+                Community(),
+                Profile()
+              ],
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+          ),
+        ));
   }
 }

@@ -54,7 +54,7 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
         //바텀바 코드
-        length: 5,
+        length: 4,
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           extendBody: true,
@@ -84,22 +84,6 @@ class _MyPageState extends State<MyPage> {
                   )),
               BottomBarItem(
                   icon: Icon(
-                    Icons.emoji_events,
-                    size: 23.w,
-                  ),
-                  selectedIcon: Icon(
-                    Icons.emoji_events,
-                    size: 23.w,
-                  ),
-                  selectedColor: const Color(0xffFFA030),
-                  backgroundColor: const Color(0xffB7B7B7),
-                  title: Text(
-                    '챔피언',
-                    style:
-                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
-                  )),
-              BottomBarItem(
-                  icon: Icon(
                     Icons.supervised_user_circle,
                     size: 23.w,
                   ),
@@ -110,7 +94,7 @@ class _MyPageState extends State<MyPage> {
                   selectedColor: const Color(0xffFFA030),
                   backgroundColor: const Color(0xffB7B7B7),
                   title: Text(
-                    '조힙',
+                    '랭킹',
                     style:
                         TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
                   )),
@@ -126,7 +110,7 @@ class _MyPageState extends State<MyPage> {
                   selectedColor: const Color(0xffFFA030),
                   backgroundColor: const Color(0xffB7B7B7),
                   title: Text(
-                    '커뮤니티',
+                    '팀빌더',
                     style:
                         TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
                   )),
@@ -175,13 +159,7 @@ class _MyPageState extends State<MyPage> {
                   });
                 }
               }),
-              children: const [
-                Search(),
-                Champion(),
-                Combination(),
-                Community(),
-                Profile()
-              ],
+              children: const [Search(), Champion(), Combination(), Profile()],
             ),
           ),
         ));

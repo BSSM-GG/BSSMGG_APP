@@ -102,6 +102,8 @@ flutter:
     - images/loon2.png
     - images/userexample.png
     - images/grandmaster.png
+    - images/lol.png
+    - images/val.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

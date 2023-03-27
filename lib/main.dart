@@ -6,6 +6,7 @@ import 'package:plz_set_ward_app/screens/bottombar/champion.dart';
 import 'package:plz_set_ward_app/screens/bottombar/combination.dart';
 import 'package:plz_set_ward_app/screens/bottombar/community.dart';
 import 'package:plz_set_ward_app/screens/bottombar/profile.dart';
+import 'package:plz_set_ward_app/screens/bottombar/rank.dart';
 import 'package:plz_set_ward_app/screens/bottombar/search.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
 import 'package:provider/provider.dart';
@@ -202,7 +203,12 @@ class _MyPageState extends State<MyPage> with TickerProviderStateMixin {
                       });
                     }
                   }),
-                  children: [Search(isPressed: emphasis.ispressed), Champion(), MyHomePage(), Profile()],
+                  children: [
+                    Search(isPressed: emphasis.ispressed),
+                    Rank(),
+                    MyHomePage(),
+                    Profile()
+                  ],
                 ),
               ),
               Padding(

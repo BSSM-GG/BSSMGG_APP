@@ -2,7 +2,7 @@
 	<img
 		width="200"
 		alt="The Lounge"
-		src="https://user-images.githubusercontent.com/89582664/228715980-8885efbc-00dd-48d3-bf1a-1c4c8641e1ff.png">
+		src="https://user-images.githubusercontent.com/89582664/228718848-b835580d-fac1-4462-84bf-5f1278e63fce.png">
 </h1>
 
 <h3 align="center">
@@ -16,7 +16,7 @@
 
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/89582664/211317339-4e4e3681-3071-429e-8c91-bbb6c5b6ed11.png" width="550">
+	<img src="https://user-images.githubusercontent.com/89582664/228715980-8885efbc-00dd-48d3-bf1a-1c4c8641e1ff.png" width="550">
 </p>
 
 ## 팀원역할

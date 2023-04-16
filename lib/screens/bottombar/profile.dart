@@ -27,7 +27,78 @@ class _ProfileState extends State<Profile> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [Text("프로필")],
+            children: [
+              SizedBox(
+                height: 26.h,
+              ),
+              Icon(
+                Icons.account_circle,
+                color: const Color(0xffD9D9D9),
+                size: 97.h,
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 80.h),
+                child: Stack(
+                  children: [
+                    AnimatedOpacity(
+                      opacity: emphasis.ispressed ? 0.0 : 1.0,
+                      duration: const Duration(milliseconds: 350),
+                      child: Text(
+                        "조용제님",
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    AnimatedOpacity(
+                      opacity: emphasis.ispressed ? 1.0 : 0.0,
+                      duration: const Duration(milliseconds: 350),
+                      child: Text(
+                        "조용제님",
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Stack(
+                children: [
+                  AnimatedOpacity(
+                    opacity: emphasis.ispressed ? 0.0 : 1.0,
+                    duration: const Duration(milliseconds: 350),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigator.push(
+                        //     context, MaterialPageRoute(builder: (_) => const Login()));
+                      },
+                      child: const Text("로그아웃"),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black),
+                    ),
+                  ),
+                  AnimatedOpacity(
+                    opacity: emphasis.ispressed ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 350),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Navigator.push(
+                        //     context, MaterialPageRoute(builder: (_) => const Login()));
+                      },
+                      child: const Text(
+                        "로그아웃",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         )));
   }

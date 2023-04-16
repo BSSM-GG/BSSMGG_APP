@@ -16,9 +16,9 @@ class _LolRankListState extends State<LolRankList> {
   @override
   void initState() {
     super.initState();
-    lolranks.add(LolRank("Challenger", 1, "", "userName", "조용제", 3, 1));
+    lolranks.add(LolRank("Challenger", 1, "", "userName", "김준서", 3, 1));
     for (int i = 0; i < 3; i++) {
-      lolranks.add(LolRank("Grandmaster 2", 1, "", "userName", "조용제", 3, 1));
+      lolranks.add(LolRank("Grandmaster 2", 1, "", "userName", "김준서", 3, 1));
     }
     for (int i = 0; i < 5; i++) {
       lolranks.add(LolRank("Diamond 1", 1, "", "userName", "조용제", 3, 1));
@@ -222,7 +222,7 @@ class _LolRankListState extends State<LolRankList> {
                 Padding(
                   padding: EdgeInsets.only(top: 35.h),
                   child: Container(
-                    height: 140.h,
+                    height: 145.h,
                     width: 100.w,
                     decoration: BoxDecoration(
                         boxShadow: [

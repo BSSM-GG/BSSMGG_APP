@@ -17,9 +17,9 @@ class _LolRankListState extends State<ValRankList> {
   @override
   void initState() {
     super.initState();
-    valranks.add(ValRank("Radiant", 1, "", "userName", "조용제", 3, 1));
+    valranks.add(ValRank("Radiant", 1, "", "userName", "김준서", 3, 1));
     for (int i = 0; i < 3; i++) {
-      valranks.add(ValRank("Immortal 3", 1, "", "userName", "조용제", 3, 1));
+      valranks.add(ValRank("Immortal 3", 1, "", "userName", "김준서", 3, 1));
     }
     for (int i = 0; i < 5; i++) {
       valranks.add(ValRank("Diamond 2", 1, "", "userName", "조용제", 3, 1));
@@ -306,7 +306,7 @@ class _LolRankListState extends State<ValRankList> {
                   style: TextStyle(
                       fontSize: 18.sp,
                       fontFamily: "Roboto",
-                      color: Colors.black),
+                      color: Colors.white),
                 ),
               ],
             ),

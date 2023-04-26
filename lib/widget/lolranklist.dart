@@ -81,20 +81,18 @@ class _LolRankListState extends State<LolRankList> {
                     height: 145.h,
                     width: 100.w,
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(tierColor(lolranks[1].ranking))
-                                .withOpacity(0.3),
-                            spreadRadius: 1,
-                            blurRadius: 6.0,
-                            offset:
-                                Offset(0, 3.h), // changes position of shadow
-                          ),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                        border: Border.all(
-                            color: Color(tierColor(lolranks[1].ranking)))),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(tierColor(lolranks[1].ranking))
+                              .withOpacity(0.3),
+                          spreadRadius: 3,
+                          blurRadius: 1.0,
+                          offset: Offset(0, 0.h), // changes position of shadow
+                        ),
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -154,19 +152,18 @@ class _LolRankListState extends State<LolRankList> {
                   height: 170.h,
                   width: 120.w,
                   decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(tierColor(lolranks[0].ranking))
-                              .withOpacity(0.4),
-                          spreadRadius: 1,
-                          blurRadius: 6.0,
-                          offset: Offset(0, 3.h), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                      border: Border.all(
-                          color: Color(tierColor(lolranks[0].ranking)))),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(tierColor(lolranks[0].ranking))
+                            .withOpacity(0.4),
+                        spreadRadius: 3,
+                        blurRadius: 1.0,
+                        offset: Offset(0, 0.h), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -225,20 +222,18 @@ class _LolRankListState extends State<LolRankList> {
                     height: 145.h,
                     width: 100.w,
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(tierColor(lolranks[2].ranking))
-                                .withOpacity(0.2),
-                            spreadRadius: 1,
-                            blurRadius: 6.0,
-                            offset:
-                                Offset(0, 3.h), // changes position of shadow
-                          ),
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                        border: Border.all(
-                            color: Color(tierColor(lolranks[2].ranking)))),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(tierColor(lolranks[2].ranking))
+                              .withOpacity(0.2),
+                          spreadRadius: 3,
+                          blurRadius: 1.0,
+                          offset: Offset(0, 0.h), // changes position of shadow
+                        ),
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -324,10 +319,11 @@ class _LolRankListState extends State<LolRankList> {
               child: Padding(
                 padding: EdgeInsets.only(left: 10.w, right: 37.w),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 10.w),
+                      padding: EdgeInsets.only(left: 10.w, right: 70.w),
                       child: Text(
                         "Rank",
                         style: TextStyle(
@@ -346,10 +342,10 @@ class _LolRankListState extends State<LolRankList> {
                       ),
                     ),
                     SizedBox(
-                      width: 13.w,
+                      width: 112.w,
                     ),
                     Text(
-                      "Tier/Exp",
+                      "Tier",
                       style: TextStyle(
                         fontSize: 15.sp,
                         color: Colors.white,
@@ -400,7 +396,7 @@ List<Widget> makeRankList(BuildContext context, List<LolRank> ranks) {
 
   for (var i = 3; i < ranks.length; i++) {
     results.add(Padding(
-      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 13.h),
+      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
       child: Container(
         width: double.infinity,
         height: 75.h,
